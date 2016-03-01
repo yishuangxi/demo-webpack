@@ -1,7 +1,7 @@
 /**
  * Created by yishuangxi on 2016/2/29.
  */
-
+var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var autoprefixer = require('autoprefixer');
@@ -14,7 +14,7 @@ module.exports = {
         about: './js/about/about.js'
     },
     output: {
-        path: 'dist/js',
+        path: path.resolve(__dirname, 'build'),
         filename: '[name].js',
         chunkFilename: "[id].js"
     },
