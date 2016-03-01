@@ -30,7 +30,7 @@ module.exports = {
         }
     },
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin("base", "base.js"),
+        new webpack.optimize.CommonsChunkPlugin("common", "common.js"),
         new ExtractTextPlugin("[name].css")
     ]
 }
