@@ -3,6 +3,7 @@
  */
 define(function(require, exports, module){
     require('css_lib1');
+    require('css_lib2');
     require('../../css/index.css');
     var a = require('./a');
     var lib2 = require('lib2');

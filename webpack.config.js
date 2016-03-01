@@ -2,26 +2,35 @@
  * Created by yishuangxi on 2016/2/29.
  */
 
+var webpack = require('webpack');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
+
 module.exports = {
-    entry:{
-        index:'./js/index/index.js',
-        lib:['./lib/lib1.js', './lib/lib2.js']
+    entry: {
+        index: './js/index/index.js',
+        about: './js/about/about.js'
     },
-    output:{
-        path:'dist/js',
-        filename:'[name].js'
+    output: {
+        path: 'dist/js',
+        filename: '[name].js',
+        chunkFilename: "[id].js"
     },
-    module:{
-        loaders:[
-            { test: /\.css$/, loader: 'style-loader!css-loader' },
+    module: {
+        loaders: [
+            {test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader") }
         ]
     },
-    resolve:{
-        root:"D:/git/demo-webpack",
-        alias:{
-            lib1:'lib/lib1.js',
-            lib2:'lib/lib2.js',
-            css_lib1:'lib/lib1.css'
+    resolve: {
+        root: "D:/git/demo-webpack",
+        alias: {
+            lib1: 'lib/lib1.js',
+            lib2: 'lib/lib2.js',
+            css_lib1: 'lib/lib1.css',
+            css_lib2: 'lib/lib2.css'
         }
-    }
+    },
+    plugins: [
+        new webpack.optimize.CommonsChunkPlugin("base", "base.js"),
+        new ExtractTextPlugin("[name].css")
+    ]
 }
