@@ -4,8 +4,11 @@
 
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var autoprefixer = require('autoprefixer');
+//var precss = require('precss');
 
 module.exports = {
+    devtool: 'source-map',
     entry: {
         index: './js/index/index.js',
         about: './js/about/about.js'
@@ -17,7 +20,7 @@ module.exports = {
     },
     module: {
         loaders: [
-            {test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader") }
+            {test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader!postcss-loader")}
         ]
     },
     resolve: {
@@ -32,5 +35,8 @@ module.exports = {
     plugins: [
         new webpack.optimize.CommonsChunkPlugin("common", "common.js"),
         new ExtractTextPlugin("[name].css")
-    ]
+    ],
+    postcss: function () {
+        return [autoprefixer];
+    }
 }
