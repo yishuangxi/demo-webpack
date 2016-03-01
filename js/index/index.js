@@ -2,6 +2,11 @@
  * Created by yishuangxi on 2016/2/29.
  */
 define(function(require, exports, module){
+    //jshint≤‚ ‘
+    g = 100
+    console.log('a')
+    function testmongo(){}
+    
     require('css_lib1');
     require('css_lib2');
     require('../../css/index.css');
