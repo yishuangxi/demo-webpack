@@ -8,19 +8,19 @@ var autoprefixer = require('autoprefixer');
 //var precss = require('precss');
 
 module.exports = {
-    //devtool: 'source-map',
+    devtool: 'source-map',
     entry: {
         index: './js/index/index.js',
         about: './js/about/about.js'
     },
     output: {
         path: path.resolve(__dirname, 'build'),
-        filename: '[name]-[chunkhash:8].js'
+        filename: '[name].js'
     },
     module: {
         preLoaders: [
             {
-                test: /\.js$/, // include .js files
+                test: /\.jsx?$/, // include .js files
                 exclude: /node_modules/, // exclude any and all files in the node_modules folder
                 loader: "jshint-loader"
             }
@@ -39,8 +39,8 @@ module.exports = {
         }
     },
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin("common", "common-[chunkhash:8].js"),
-        new ExtractTextPlugin("[name]-[chunkhash:8].css")
+        new webpack.optimize.CommonsChunkPlugin("common", "common.js"),
+        new ExtractTextPlugin("[name].css")
     ],
     postcss: function () {
         return [autoprefixer];
