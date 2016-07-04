@@ -5,13 +5,13 @@ var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var autoprefixer = require('autoprefixer');
-//var precss = require('precss');
+var precss = require('precss');
 
 module.exports = {
     devtool: 'source-map',
     entry: {
-        index: './js/index/index.js',
-        about: './js/about/about.js'
+        about: 'src/js/about/index.jsx',
+        index: 'src/js/index/index.jsx'
     },
     output: {
         path: path.resolve(__dirname, 'build'),
@@ -32,8 +32,8 @@ module.exports = {
     resolve: {
         root: __dirname,
         alias: {
-            lib1: 'lib/lib1.js',
-            lib2: 'lib/lib2.js',
+            lib1: 'src/js/lib/lib1.js',
+            lib2: 'src/js/lib/lib2.js',
             css_lib1: 'lib/lib1.css',
             css_lib2: 'lib/lib2.css'
         }
