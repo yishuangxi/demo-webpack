@@ -10,8 +10,8 @@ var precss = require('precss');
 module.exports = {
     devtool: 'source-map',
     entry: {
-        about: 'src/js/about/index.jsx',
-        index: 'src/js/index/index.jsx'
+        'web-about': 'src/js/about/index.jsx',
+        'web-index': 'src/js/index/index.jsx'
     },
     output: {
         path: path.resolve(__dirname, 'build'),
