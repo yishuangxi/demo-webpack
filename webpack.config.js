@@ -30,7 +30,7 @@ module.exports = {
         ]
     },
     resolve: {
-        root: "D:/git/demo-webpack",
+        root: __dirname,
         alias: {
             lib1: 'lib/lib1.js',
             lib2: 'lib/lib2.js',
