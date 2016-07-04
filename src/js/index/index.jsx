@@ -2,7 +2,8 @@
  * Created by lenovo on 2016/7/5.
  */
 
-var $ = require('jquery')
+import Hello from './components/answer.jsx';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-console.log($)
-console.log('index page')
+ReactDOM.render(<Hello />, document.getElementById('app'));

@@ -17,6 +17,9 @@ module.exports = {
         path: path.resolve(__dirname, 'build'),
         filename: '[name].js'
     },
+    resolve: {
+        extensions: ['', '.js', '.jsx'],
+    },
     module: {
         preLoaders: [
             {
@@ -26,7 +29,13 @@ module.exports = {
             }
         ],
         loaders: [
-            {test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader!postcss-loader")}
+            {test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader!postcss-loader")},
+            {
+                test: /\.jsx?$/,
+                exclude: /node_modules/,
+                loaders: ['babel?presets[]=react,presets[]=es2015']
+            }
+
         ]
     },
     resolve: {
